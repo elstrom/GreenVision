@@ -13,13 +13,13 @@ def get_api_response(prompt: str) -> Union[str, None]:
         response: dict = openai.Completion.create(
             model='text-curie-001',
             prompt=prompt,
-            temperature=0.6,
+            temperature=0.7,
             max_tokens=110,
-            top_p=1,
-            best_of=1,
-            frequency_penalty=0,
-            presence_penalty=0.6,
-            stop=[' Human:', ' ID Answer:']
+            top_p=0.9,
+            best_of=2,
+            frequency_penalty=0.5,
+            presence_penalty=0.5,
+            stop=[' Human:', ' ID Answer:', '?']
         )
 
         choices: dict = response.get('choices')[0]
@@ -50,7 +50,6 @@ def get_bot_response(message: str, pl: list[str]) -> str:
         update_list(bot_response, pl)
         pos: int = bot_response.find('ID Answer: ')
         bot_response = bot_response[pos + 5:]
-        bot_response = bot_response.replace(':', '')
 
     else:
         bot_response = 'Something went wrong...'
@@ -59,10 +58,9 @@ def get_bot_response(message: str, pl: list[str]) -> str:
 
 def translate_text(text):
     try:
-        tts_id = translate_google(text, 'en', 'id')
-        tts_jp = translate_google(text, 'en', 'ja')
+        tts_en = translate_google(text, 'id', 'en')
+        tts_id = translate_google(tts_en, 'en', 'id')
         print("ID Answer: " + tts_id)
-        print("JP Answer: " + tts_jp)
     except Exception as e:
         print("Error translating text: {0}".format(e))
 
