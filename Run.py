@@ -11,7 +11,7 @@ def get_api_response(prompt: str) -> Union[str, None]:
 
     try:
         response: dict = openai.Completion.create(
-            model='gpt-3.5-turbo',
+            model='text-curie-001',
             prompt=prompt,
             temperature=0.6,
             max_tokens=110,
@@ -48,9 +48,10 @@ def get_bot_response(message: str, pl: list[str]) -> str:
 
     if bot_response:
         update_list(bot_response, pl)
-        pos: int = bot_response.find('\nID Answer: ')
+        pos: int = bot_response.find('ID Answer: ')
         bot_response = bot_response[pos + 5:]
-        bot_response = bot_response.replace('AI', 'GreenVision')
+        bot_response = bot_response.replace(':', '')
+
     else:
         bot_response = 'Something went wrong...'
 
@@ -58,9 +59,10 @@ def get_bot_response(message: str, pl: list[str]) -> str:
 
 def translate_text(text):
     try:
-        tts_en = translate_google(text, 'en', 'id')
-        if tts_en:
-            print(tts_en)
+        tts_id = translate_google(text, 'en', 'id')
+        tts_jp = translate_google(text, 'en', 'ja')
+        print("ID Answer: " + tts_id)
+        print("JP Answer: " + tts_jp)
     except Exception as e:
         print("Error translating text: {0}".format(e))
 
@@ -71,7 +73,6 @@ def main():
         user_input: str = input('You: ')
         response: str = get_bot_response(user_input, Knowledge)
         translate_text(response)
-        print(response)
 
 
 if __name__ == '__main__':
