@@ -58,8 +58,7 @@ def get_bot_response(message: str, pl: list[str]) -> str:
 
 def translate_text(text):
     try:
-        tts_en = translate_google(text, 'id', 'en')
-        tts_id = translate_google(tts_en, 'en', 'id')
+        tts_id = translate_google(text, 'en', 'id')
         print("ID Answer: " + tts_id)
     except Exception as e:
         print("Error translating text: {0}".format(e))
