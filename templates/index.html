@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    <div id="chat-container"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#chat-container').append('<p>Chatbot: Selamat datang! Mulai percakapan.</p>');
+
+            $('form').on('submit', function(event) {
+                event.preventDefault();
+                var user_input = $('#user-input').val();
+                $('#user-input').val('');
+
+                $.ajax({
+                    url: '/chat',
+                    type: 'POST',
+                    data: {user_input: user_input},
+                    success: function(response) {
+                        $('#chat-container').append('<p>You: ' + user_input + '</p>');
+                        $('#chat-container').append('<p>Chatbot: ' + response.response + '</p>');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <form>
+        <input type="text" id="user-input" placeholder="Masukkan pesan...">
+        <input type="submit" value="Kirim">
+    </form>
+</body>
+</html>
