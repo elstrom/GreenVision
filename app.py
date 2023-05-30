@@ -1,5 +1,10 @@
+import sys
+sys.path.append('C:\\Users\\danra\\Downloads\\latihan\\GreenVision')
+
 from flask import Flask, jsonify, render_template, request
-from ..Run import get_bot_response, translate_text, Knowledge
+from Bot.Run import get_bot_response
+from Bot.utils.Translate import translate_google
+from Bot.Knowledge import prompt_list as Knowledge
 
 app = Flask(__name__)
 
@@ -9,7 +14,7 @@ def chat():
     # Panggil fungsi get_bot_response dengan user_input sebagai parameter
     response = get_bot_response(user_input, Knowledge)
     # Terjemahkan respons jika diperlukan
-    translated_response = translate_text(response)
+    translated_response = translate_google(response, 'en', 'id')
     return jsonify(response=translated_response)
 
 @app.route('/')

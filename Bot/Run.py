@@ -1,9 +1,9 @@
 import openai
 from typing import Union
-from utils.Translate import *
-from Knowledge import prompt_list
+from Bot.utils.Translate import *
+from Bot.Knowledge import prompt_list
 
-with open('hidden.txt') as file:
+with open('bot\hidden.txt') as file:
     openai.api_key = file.read()
 
 def get_api_response(prompt: str) -> Union[str, None]:
