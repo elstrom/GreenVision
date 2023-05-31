@@ -6,7 +6,7 @@ from Bot.Run import get_bot_response
 from Bot.utils.Translate import translate_google
 from Bot.Knowledge import prompt_list as Knowledge
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 @app.route('/chat', methods=['POST'])
 def chat():
@@ -22,4 +22,4 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

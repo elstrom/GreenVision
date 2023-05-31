@@ -11,7 +11,7 @@ def get_api_response(prompt: str) -> Union[str, None]:
 
     try:
         response: dict = openai.Completion.create(
-            model='text-curie-001',
+            model='text-davinci-003',
             prompt=prompt,
             temperature=0.7,
             max_tokens=110,
@@ -52,7 +52,7 @@ def get_bot_response(message: str, pl: list[str]) -> str:
         bot_response = bot_response[pos + 5:]
 
     else:
-        bot_response = 'Something went wrong...'
+        bot_response = 'Sorry, can you send it again!'
 
     return bot_response
 

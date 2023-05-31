@@ -1,0 +1,485 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(12, 98, 21, 41);
+}
+
+body, html {
+	height: 100%;
+}
+.latarbelakang1, .latarbelakang2, .latarbelakang3, .latarbelakang4 {
+	position: relative;
+	opacity: 0.65;
+	transition: width 2s linear 1s;
+	height: 100%;
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+.latarbelakang1 {
+	background-image: url("../Pict/back2.png");
+}
+.latarbelakang2 {
+	background-image: url("../Pict/back4.jpg");
+}
+.latarbelakang3 {
+	background-image: url("../Pict/back1.jpg");
+}
+.latarbelakang4 {
+	background-image: url("../Pict/back3.jpg");
+	max-height: 600px;
+}
+.kepala {
+	overflow: hidden;
+	position: fixed;
+	transform: translate(-10%, -40%);
+	padding: 5px;
+	top: 50px;
+  	left: 200px;
+	width: 98%;
+	border-bottom: #FFFFFF double 3px;
+	z-index: 50;
+	background-color: rgba(119, 153, 128, 0.3);
+}
+.wadah {
+	float: left;
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+.kolom-kiri{
+	float: left;
+	flex: 50%;
+}
+.rumah {
+	float: left;
+	margin-top: 25px;
+}
+.kontrol-musik {
+	float: left;
+	width: 46px;
+	height: 48px;
+	position: relative;
+	margin: 20px;
+	margin-right: 5px;
+	padding: 4px;
+}
+.audio {
+	width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+    pointer-events: all;
+	text-align: center;
+  	text-decoration: none;
+  	outline: none;
+  	border: none;
+}
+#logo {
+	width: 5%;
+	float: left;
+	margin: 12px 0px;
+}
+.rumah a{
+	color: inherit;
+	text-decoration: none;
+	font: normal normal normal 24px/1.4em barlow-medium,barlow,sans-serif;
+	color: #FFFFFF;
+	margin: 0px 10px;
+}
+.menu-kiri {
+	float: left;
+	margin-top: 33px;
+	margin-left: 5px;
+}
+.menu-kiri a {
+	color: inherit;
+	text-decoration: none;
+	font: normal normal normal 15px/1.4em barlow-medium,barlow,sans-serif;
+	color: #FFFFFF;
+	margin: 0px 5px;
+}
+.kolom-kanan {
+	float: left;
+	flex: 50%;
+}
+.menu-kanan {
+	float: left;
+	margin: 20px 0px;
+	margin-left: 80%;
+}
+.tombol-login {
+	float: left;
+}
+#login {
+	float: left; 
+	height: 40px;
+}
+.text {
+	float: left;
+	padding: 10px 5px;
+	font: normal normal normal 18px/1.4em barlow-medium,barlow,sans-serif;
+	color: #FFFFFF;
+}
+ol, ul {
+    list-style: none;
+}
+.icon {
+	height: 20px;
+}
+ul li a {
+	text-decoration: none;
+	margin-right: 5px;
+}
+.pembelian {
+	float: left;
+	margin: 13px 5px;
+}
+.main1 {
+	position: absolute;
+	color: rgb(90, 77, 3);
+	top: 35%;
+	right: 55%;
+	padding-left: 30px;
+}
+.main1-judul {
+	font: normal 18px  Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+}
+.main1-konten {
+	font: bold 82px "droid-sans", rosario, Segoe, "Segoe UI", "DejaVu Sans", "Trebuchet MS", Verdana, "sans-serif";
+}
+.main2 {
+	position: absolute;
+	top: 100%;
+    width: calc(100% - 0px);
+    min-width: 980px;
+    backface-visibility: hidden;
+	margin-top: 400px;
+}
+
+.main2-judul {
+	position: absolute;
+	width: 100%;
+	padding: 90px 50px;
+	margin-bottom: 50px;
+	text-align: center;
+	color: #504e4e !important;
+	font: 2em gotham;
+}
+
+.main2-page1 {
+	position: absolute;
+	width: 20%;
+	padding: 150px 50px;
+	border-right: rgba(176,165,166,0.72) ridge 3.5px;
+}
+page1 {
+	left: 0%;
+	top: 350px;
+}
+page2 {
+	left: 20%;
+	top: 250px;
+}
+page3 {
+	left: 40%;
+	top: 350px;
+	color: ghostwhite !important;
+}
+page4 {
+	left: 60%;
+	top: 250px;
+	color: ghostwhite !important;
+}
+page5 {
+	left: 80%;
+	top: 350px;
+	color: ghostwhite !important;
+	border: none !important;
+}
+
+.main3 {
+	position: absolute;
+	top: 285%;
+    width: calc(100% - 0px);
+    min-width: 980px;
+    backface-visibility: hidden;
+}
+
+.main3-page1 {
+	height: 700px;
+}
+
+#chat-container {
+    max-width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow-y: auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	padding: 30px;
+}
+
+  
+  #message-container {
+	padding: 10px;
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: flex-start;
+	margin-bottom: auto;
+	overflow-y: auto;
+	flex-grow: 1;
+	font-size: 20px;
+  }
+  
+  .message {
+	padding: 10px;
+	border-radius: 10px;
+	display: flex;
+	align-items: flex-end;
+	max-width: 80%;
+	margin-bottom: 10px;
+  }
+  
+  .message p {
+    font-size: inherit; /* Menurunkan ukuran teks dari parent (#message-container) */
+	}
+
+  .incoming {
+	background-color: #f2f2f2;
+	text-align: right;
+	align-self: flex-end; /* Menampilkan pesan di sebelah kiri */
+	}
+
+	.outgoing {
+		background-color: #d4edda;
+		text-align: left;
+		align-self: flex-start; /* Menampilkan pesan di sebelah kanan */
+	}
+
+	.outgoing .avatar {
+		margin-left: 10px;
+		margin-right: 0;
+	}
+
+	.outgoing p {
+		margin-right: 10px;
+		margin-left: 0;
+	}
+  
+  .avatar {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	margin-right: 10px;
+	object-fit: cover;
+	object-position: center;
+  }
+  
+  #input-container {
+	padding: 10px;
+	display: flex;
+	align-items: center; /* Menjajarkan vertikal tombol send dengan input teks */
+	overflow: hidden; /* Menghilangkan scrollbar jika kontennya melebihi area visible */
+  }
+  
+  #user-input {
+	flex-grow: 1;
+	margin-right: 10px;
+	padding: 20px;
+	border-radius: 15px;
+	border: none; /* Menghilangkan border pada input teks */
+	outline: none; /* Menghilangkan outline saat input teks aktif */
+  }
+  
+  #send-button {
+	padding: 10px;
+	border: none;
+	background-color: transparent;
+	cursor: pointer;
+	display: flex; /* Menggunakan display flex untuk mengontrol posisi ikon */
+	align-items: center; /* Menjajarkan vertikal ikon dengan tombol */
+	justify-content: center; /* Menjajarkan horizontal ikon dengan tombol */
+  }
+  
+  #send-icon-black,
+  #send-icon-white {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	transition: opacity 0.3s; /* Menambahkan transisi pada perubahan opasitas */
+	position: absolute;
+  }
+  
+  #send-icon-white {
+	opacity: 0; /* Mengatur opasitas 0 pada ikon putih */
+  }
+  
+  #send-icon-black {
+	pointer-events: none; /* Mengatur elemen agar tidak bisa diklik */
+	cursor: default; /* Mengubah tampilan pointer menjadi default */
+  }
+
+  #user-input:not(:placeholder-shown) + #send-button #send-icon-black {
+	opacity: 0; /* Mengatur opasitas 0 pada ikon hitam saat pengguna mulai mengetik */
+  }
+  
+  #user-input:not(:placeholder-shown) + #send-button #send-icon-white {
+	opacity: 1; /* Mengatur opasitas 1 pada ikon putih saat pengguna mulai mengetik */
+  }
+  
+  /* Animasi */
+  @keyframes fade-in {
+	from {
+	  opacity: 0;
+	  transform: translateY(10px);
+	}
+	to {
+	  opacity: 1;
+	  transform: translateY(0);
+	}
+  }
+  
+  .message {
+	animation: fade-in 0.3s ease;
+  }
+  
+  
+  
+  
+
+
+
+
+
+
+
+icon {
+	box-sizing: border-box;
+}
+judul {
+	font: bold 20px Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+}
+p {
+	font: normal 16px Baskerville, "Palatino Linotype", Palatino, "Century Schoolbook L", "Times New Roman", "serif";
+}
+l {
+	font: bold 45px "amatic-sc", "coming-soon", Modern,"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", "DejaVu Sans", Verdana, "sans-serif";
+}
+.main4 p {
+	padding-left: 60%;
+}
+.slideshow {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+
+.show-jendela {
+  display: none;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.nama {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.nomor-text {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+.caption {
+    position: absolute;
+    left: 0;
+    top: 1%;
+    width: 100%;
+    text-align: center;
+    color: #000;
+}
+.caption span.border {
+    background-color: #111;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+}

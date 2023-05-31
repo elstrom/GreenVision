@@ -1,38 +1,207 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
 <head>
-    <title>Chatbot</title>
+	<meta charset="utf-8">
+	<title>Index</title>
+	<link rel="stylesheet" href={{ url_for('static', filename='/CSS/Home.css') }} type="text/css">
+	<script src={{ url_for('static', filename='/Header.js') }} ></script>
 </head>
 <body>
-    <h1>Chatbot</h1>
-    <div id="chat-container"></div>
+	<div class="latarbelakang1"></div>
+	<div class="kepala">
+		<div class="wadah">
+			<div class="kolom-kiri">
+				<div class="kontrol-musik">
+					<audio id="myAudio" hidden autoplay loop>
+  						<source src="static/Musik/Backmusik.mp3" type="audio/mpeg">
+						Browsermu tidak mendukung tag audio
+					</audio>
+					<button onclick="playAudio()" type="button" class="button" id="mulai">
+						<img alt="Music" src="{{ url_for('static', filename='/Pixel/MusicOn.png') }}" class="audio" id="pictmulai">
+					</button>
+					<button onclick="pauseAudio()" type="button" class="button" id="jeda" style="opacity: 0;">
+						<img alt="Music" src="{{ url_for('static', filename='/Pixel/MusicOn.png') }}" class="audio" id="pictjeda">
+					</button>
+				</div>
+				<img src="static/Pixel/headphone.png" id="logo">
+				<div class="rumah">
+					<a href="#">SoundBeat</a>
+				</div>
+				<div class="menu-kiri">
+					<a href="Index.html">Home</a>
+					<a href="Order.html">Order</a>
+					<a href="Review.html">Review</a>
+					<a href="Banefit.html">Banefit</a>
+				</div>
+			</div>
+			<div class="kolom-kanan">
+				<div class="menu-kanan">
+					<div class="tombol-login">
+						<button class="button">
+							<img src="static/Pixel/login.png" id="login">
+							<a href="form.html" class="text">Log In</a>
+						</button>
+					</div>
+					<div class="pembelian">
+						<ul>
+							<li>
+								<a href="#">
+									<img src="static/Pixel/instagram.png" class="icon">
+								</a>
+								<a href="#">
+									<img src="static/Pixel/whatsapp.png" class="icon">
+								</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="main1">
+		<div class="main1-judul">
+			Environmental Conservation <br>
+			<p>&nbsp&nbsp by Group 1 of the Fibonacci class</p>
+		</div>
+		<div class="main1-konten">
+			Smart Chatbot <br> GreenVision
+		</div>
+	</div>
+	<div style="color: #1b422c;background-color:rgb(99, 71, 20);text-align:center;padding:50px 200px;text-align: justify;">
+		<h1 style="text-align:center;">GreenVision</h1>
+		<br>
+		<p style=" font-size: large;">&nbsp &nbsp GreenVision adalah aplikasi chatbot pintar yang didedikasikan untuk konservasi lingkungan. Dengan fitur interaktif dan saran praktis, pengguna dapat dengan mudah menjalankan praktik lingkungan yang baik. Aplikasi ini juga memberikan pemantauan lingkungan real-time dan memfasilitasi kolaborasi dalam komunitas peduli lingkungan. Bersama GreenVision, kita dapat menjadi agen perubahan untuk menjaga keberlanjutan bumi.
+		<br><br>
+		&nbsp &nbsp Dengan GreenVision, pengguna dapat dengan mudah mengajukan pertanyaan, mendapatkan informasi, dan berinteraksi dengan chatbot yang pintar mengenai berbagai aspek lingkungan. Aplikasi ini menyediakan beragam fitur dan layanan untuk membantu pengguna menjadi lebih sadar akan pentingnya konservasi alam dan mengambil tindakan nyata.
+		<br><br>
+		&nbsp &nbsp Salah satu fitur utama dari GreenVision adalah kemampuannya untuk memberikan informasi tentang praktik lingkungan yang baik. Chatbot ini mampu memberikan saran tentang cara mengurangi jejak karbon, mengelola sampah dengan bijaksana, menghemat energi, dan menggunakan sumber daya alam secara berkelanjutan. Pengguna dapat mendapatkan panduan praktis dan solusi yang dapat diterapkan dalam kehidupan sehari-hari mereka untuk membantu melindungi lingkungan.</p>
+	</div>
+	<div class="latarbelakang2"></div>
+	<div class="main2">
+		<div class="main2-judul">
+			<h1>Anggota Party</h1>
+		</div>
+		<page1 class="main2-page1">
+			<icon>
+				<img src="static/Pixel/verified-user.png" style="height: 100px;">
+			</icon>
+			<br>
+			<judul>
+				<strong>Ramdan Kurnia</strong>
+			</judul>
+			<p>
+				Stable noise in all codition with low latency for gaming
+			</p>
+		</page1>
+		<page2 class="main2-page1">
+			<icon>
+				<img src="static/Pixel/verified-user.png" style="height: 100px;">
+			</icon>
+			<br>
+			<judul>
+				<strong>Tri Febrianto</strong>
+			</judul>
+			<p>
+				high experience to original sound and real tuning sound compare
+			</p>
+		</page2>
+		<page3 class="main2-page1">
+			<icon>
+				<img src="static/Pixel/verified-user.png" style="height: 100px;">
+			</icon>
+			<br>
+			<judul>
+				<strong>Sipa</strong>
+			</judul>
+			<p>
+				Stable noise in all codition with low latency for gaming
+			</p>
+		</page3>
+		<page4 class="main2-page1">
+			<icon>
+				<img src="static/Pixel/verified-user.png" style="height: 100px;">
+			</icon>
+			<br>
+			<judul>
+				<strong>Emil</strong>
+			</judul>
+			<p>
+				Low power usage in big battery include then fast chage
+			</p>
+		</page4>
+		<page5 class="main2-page1">
+			<icon>
+				<img src="static/Pixel/verified-user.png" style="height: 100px;">
+			</icon>
+			<br>
+			<judul>
+				<strong>fitri</strong>
+			</judul>
+			<p>
+				Best comfortable design and fit for who are the users
+			</p>
+		</page5>
+	</div>
+	<div style="color: whitesmoke;background-color:rgb(99, 78, 20);text-align: right;padding: 50px 150px 50px 50%;text-align: justify;">
+		<div style="text-align: right;">
+			<l>With AI chatbots <br> We raise living standards </l>
+			<p>A maintained environment increases productivity and increases morale for humans and nature itself, with GreenVision, let's form a more decent earth together</p>
+		</div>
+	</div>
+	<div class="latarbelakang3"></div>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $('#chat-container').append('<p>Chatbot: Selamat datang! Mulai percakapan.</p>');
-
-            $('form').on('submit', function(event) {
-                event.preventDefault();
-                var user_input = $('#user-input').val();
-                $('#user-input').val('');
-
-                $.ajax({
-                    url: '/chat',
-                    type: 'POST',
-                    data: {user_input: user_input},
-                    success: function(response) {
-                        $('#chat-container').append('<p>You: ' + user_input + '</p>');
-                        $('#chat-container').append('<p>Chatbot: ' + response.response + '</p>');
-                    }
-                });
-            });
-        });
-    </script>
-
-    <form>
-        <input type="text" id="user-input" placeholder="Masukkan pesan...">
-        <input type="submit" value="Kirim">
-    </form>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<div class="main3">
+		<div class="main3-page1">
+			<div id="chat-container">
+				<div id="message-container">
+					<script>
+						$(document).ready(function() {
+							$('#message-container').append('<div class="message outgoing"><p>Selamat datang! Silahkan mulai percakapan.</p></div>');
+						
+							$('form').on('submit', function(event) {
+								event.preventDefault();
+								var user_input = $('#user-input').val();
+								$('#user-input').val('');
+	
+								$.ajax({
+									url: '/chat',
+									type: 'POST',
+									data: {user_input: user_input},
+									success: function(response) {
+										$('#message-container').prepend('<div class="message outgoing"><p>' + response.response + '</p></div>'); /* Chabot */
+										$('#message-container').prepend('<div class="message incoming"><p>' + user_input + '</p></div>'); /* User */
+									}
+								});
+							});
+						});
+					</script>
+				</div>
+				<div id="input-container">
+					<form style="width: 100%; display: flex;">
+						<input type="text" id="user-input" placeholder="Type a message...">
+						<button type="submit" id="send-button">
+							<img src="static/Pixel/icon-tombol(putih).png" alt="Send" id="send-icon-black">
+							<img src="static/Pixel/icon-tombol(hitam).png" alt="Send" id="send-icon-white">
+						</button>
+					</form>
+				</div>					  
+			</div>
+		</div>
+	</div>
+	<div style="position: relative; background: gray; text-align: left; padding: 20px 100px; color: whitesmoke;">
+		<div class="main4">
+			<center><l>Great Simple <br> Complex and Classic</l><br>
+			<img src="static/Pixel/background-tombol.png" alt=""></center>
+		</div>
+	</div>
+	<div class="latarbelakang4">
+		<center>
+			<iframe width="967" height="544" src="https://www.youtube.com/embed/CzUiYIX3Sx4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="padding-top: 50px;"></iframe>
+		</center>
+	</div>
+	<frameset>
+		<iframe name="bottom" scrolling="no" width="100%" target="contents" frameborder="0" height="68px" src="{{ url_for('static', filename='/footer.html') }}"></iframe>
+	</frameset>
 </body>
 </html>
