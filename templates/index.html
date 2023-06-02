@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<title>Index</title>
 	<link rel="stylesheet" href={{ url_for('static', filename='/CSS/Home.css') }} type="text/css">
-	<script src={{ url_for('static', filename='/Header.js') }} ></script>
+	<script src={{ url_for('static', filename='/Header.js') }}></script>
 </head>
 <body>
 	<div class="latarbelakang1"></div>
@@ -23,7 +23,7 @@
 						<img alt="Music" src="{{ url_for('static', filename='/Pixel/MusicOn.png') }}" class="audio" id="pictjeda">
 					</button>
 				</div>
-				<img src="static/Pixel/headphone.png" id="logo">
+				<img src="static/Pixel/2-NoBG.png" id="logo">
 				<div class="rumah">
 					<a href="#">SoundBeat</a>
 				</div>
@@ -149,7 +149,6 @@
 		</div>
 	</div>
 	<div class="latarbelakang3"></div>
-
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<div class="main3">
 		<div class="main3-page1">
@@ -189,13 +188,74 @@
 			</div>
 		</div>
 	</div>
-	<div style="position: relative; background: gray; text-align: left; padding: 20px 100px; color: whitesmoke;">
-		<div class="main4">
-			<center><l>Great Simple <br> Complex and Classic</l><br>
+	<div style="color: whitesmoke;background-color:rgb(104, 99, 71);text-align: right;padding: 30px 150px 30px 6%;text-align: justify;">
+		<div style="text-align: center;">
+			<center><l> Great With Simple AI <br> Complex but Classic Identify <br> Scan your waste and let's find out </l><br>
 			<img src="static/Pixel/background-tombol.png" alt=""></center>
 		</div>
 	</div>
-	<div class="latarbelakang4">
+	<div class="latarbelakang4"></div>
+	<div class="main4">
+		<div class="main4-page1">
+		  <div id="scan-container">
+			<div id="image-preview"></div>
+			<label for="upload-button" class="upload-button">
+			  <span>Upload Gambar</span>
+			  <input type="file" id="upload-button" style="display: none;">
+			</label>
+		  </div>
+		</div>
+	</div>
+	<!-- Add TensorFlow.js library -->
+	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.12.0/dist/tf.min.js"></script>
+	<!-- Load the model -->
+	<script>
+	  async function loadModel() {
+		const model = await tf.loadLayersModel('static/model.h5');
+		return model;
+	  }
+	</script>
+  
+	<!-- Main JavaScript code -->
+	<script>
+	  // Function to handle image upload and prediction
+	  async function handleImageUpload(event) {
+		const file = event.target.files[0];
+		const reader = new FileReader();
+  
+		reader.onload = async function(event) {
+		  const image = new Image();
+		  image.src = event.target.result;
+  
+		  image.onload = async function() {
+			// Create a TensorFlow.js tensor from the image
+			const tensor = tf.browser.fromPixels(image)
+			  .resizeNearestNeighbor([224, 224]) // Resize the image to match the input size of the model
+			  .expandDims()
+			  .toFloat()
+			  .div(255.0);
+  
+			// Load the pre-trained model
+			const model = await loadModel();
+  
+			// Perform the prediction
+			const prediction = await model.predict(tensor).data();
+  
+			// Display the prediction results
+			const predictionText = `Prediction: ${prediction}`;
+			const predictionElement = document.createElement('p');
+			predictionElement.innerText = predictionText;
+			document.getElementById('scan-container').appendChild(predictionElement);
+		  }
+		}
+  
+		reader.readAsDataURL(file);
+	  }
+  
+	  // Event listener for file upload button
+	  document.getElementById('upload-button').addEventListener('change', handleImageUpload);
+	</script>
+	<div class="latarbelakang5">
 		<center>
 			<iframe width="967" height="544" src="https://www.youtube.com/embed/CzUiYIX3Sx4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="padding-top: 50px;"></iframe>
 		</center>

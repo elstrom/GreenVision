@@ -11,7 +11,7 @@ def get_api_response(prompt: str) -> Union[str, None]:
 
     try:
         response: dict = openai.Completion.create(
-            model='text-davinci-003',
+            model='text-curie-001',
             prompt=prompt,
             temperature=0.7,
             max_tokens=110,
