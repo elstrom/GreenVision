@@ -7,7 +7,7 @@
 	<script src={{ url_for('static', filename='/Header.js') }}></script>
 </head>
 <body>
-	<div class="latarbelakang1"></div>
+	<div class="latarbelakang1" id="home"></div>
 	<div class="kepala">
 		<div class="wadah">
 			<div class="kolom-kiri">
@@ -25,15 +25,33 @@
 				</div>
 				<img src="static/Pixel/2-NoBG.png" id="logo">
 				<div class="rumah">
-					<a href="#">SoundBeat</a>
+					<a href="#home">GreenVision</a>
 				</div>
 				<div class="menu-kiri">
-					<a href="Index.html">Home</a>
-					<a href="Order.html">Order</a>
-					<a href="Review.html">Review</a>
-					<a href="Banefit.html">Banefit</a>
+					<a href="#home">Home</a>
+					<a href="#party">Party</a>
+					<a href="#chatbot">ChatBot</a>
+					<a href="#predict">Predict</a>
 				</div>
 			</div>
+			<script>
+				// Mengambil semua elemen <a> di dalam <div class="menu-kiri">
+				const links = document.querySelectorAll('.menu-kiri a');
+			  
+				// Menambahkan event listener ke setiap elemen <a>
+				links.forEach(link => {
+				  link.addEventListener('click', function(e) {
+					e.preventDefault(); // Menghentikan aksi default saat mengklik link
+			  
+					const target = this.getAttribute('href'); // Mendapatkan nilai atribut href
+			  
+					// Menggunakan smooth scrolling ke elemen target
+					document.querySelector(target).scrollIntoView({
+					  behavior: 'smooth'
+					});
+				  });
+				});
+			  </script>
 			<div class="kolom-kanan">
 				<div class="menu-kanan">
 					<div class="tombol-login">
@@ -76,69 +94,69 @@
 		<br><br>
 		&nbsp &nbsp Salah satu fitur utama dari GreenVision adalah kemampuannya untuk memberikan informasi tentang praktik lingkungan yang baik. Chatbot ini mampu memberikan saran tentang cara mengurangi jejak karbon, mengelola sampah dengan bijaksana, menghemat energi, dan menggunakan sumber daya alam secara berkelanjutan. Pengguna dapat mendapatkan panduan praktis dan solusi yang dapat diterapkan dalam kehidupan sehari-hari mereka untuk membantu melindungi lingkungan.</p>
 	</div>
-	<div class="latarbelakang2"></div>
+	<div class="latarbelakang2" id="party"></div>
 	<div class="main2">
 		<div class="main2-judul">
 			<h1>Anggota Party</h1>
 		</div>
 		<page1 class="main2-page1">
 			<icon>
-				<img src="static/Pixel/verified-user.png" style="height: 100px;">
+				<img src="static/Pixel/ramdan.jpg" style="height: 200px;">
 			</icon>
 			<br>
 			<judul>
 				<strong>Ramdan Kurnia</strong>
 			</judul>
 			<p>
-				Stable noise in all codition with low latency for gaming
+				<span style="font-size: larger;">AS</span> ( Front End & Back End )
 			</p>
 		</page1>
 		<page2 class="main2-page1">
 			<icon>
-				<img src="static/Pixel/verified-user.png" style="height: 100px;">
+				<img src="static/Pixel/tri.jpeg" style="height: 200px;">
 			</icon>
 			<br>
 			<judul>
-				<strong>Tri Febrianto</strong>
+				<strong>Tri Febriyanto</strong>
 			</judul>
 			<p>
-				high experience to original sound and real tuning sound compare
+				<span style="font-size: larger;">AS</span> ( Lead Back End )
 			</p>
 		</page2>
 		<page3 class="main2-page1">
 			<icon>
-				<img src="static/Pixel/verified-user.png" style="height: 100px;">
+				<img src="static/Pixel/sipa.jpeg" style="height: 200px;">
 			</icon>
 			<br>
 			<judul>
-				<strong>Sipa</strong>
+				<strong>Nursyifa Zahra Addaraeni</strong>
 			</judul>
 			<p>
-				Stable noise in all codition with low latency for gaming
+				<span style="font-size: larger;">AS</span> ( Assisten Back End )
 			</p>
 		</page3>
 		<page4 class="main2-page1">
 			<icon>
-				<img src="static/Pixel/verified-user.png" style="height: 100px;">
+				<img src="static/Pixel/emil.jpg" style="height: 150px;">
 			</icon>
 			<br>
 			<judul>
-				<strong>Emil</strong>
+				<strong>Desiana Elsa Emilia</strong>
 			</judul>
 			<p>
-				Low power usage in big battery include then fast chage
+				<span style="font-size: larger;">AS</span> ( Video Editor )
 			</p>
 		</page4>
 		<page5 class="main2-page1">
 			<icon>
-				<img src="static/Pixel/verified-user.png" style="height: 100px;">
+				<img src="static/Pixel/fitri.jpg" style="height: 200px;">
 			</icon>
 			<br>
 			<judul>
-				<strong>fitri</strong>
+				<strong>Fitriya Herawati</strong>
 			</judul>
 			<p>
-				Best comfortable design and fit for who are the users
+				<span style="font-size: larger;">AS</span> ( Assisten Video Editor )
 			</p>
 		</page5>
 	</div>
@@ -148,7 +166,7 @@
 			<p>A maintained environment increases productivity and increases morale for humans and nature itself, with GreenVision, let's form a more decent earth together</p>
 		</div>
 	</div>
-	<div class="latarbelakang3"></div>
+	<div class="latarbelakang3" id="chatbot"></div>
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<div class="main3">
 		<div class="main3-page1">
@@ -157,12 +175,12 @@
 					<script>
 						$(document).ready(function() {
 							$('#message-container').append('<div class="message outgoing"><p>Selamat datang! Silahkan mulai percakapan.</p></div>');
-						
-							$('form').on('submit', function(event) {
+							
+							$('#chat-form').on('submit', function(event) {
 								event.preventDefault();
 								var user_input = $('#user-input').val();
 								$('#user-input').val('');
-	
+		
 								$.ajax({
 									url: '/chat',
 									type: 'POST',
@@ -177,14 +195,14 @@
 					</script>
 				</div>
 				<div id="input-container">
-					<form style="width: 100%; display: flex;">
+					<form id="chat-form" action="/chat" method="post" style="width: 100%; display: flex;">
 						<input type="text" id="user-input" placeholder="Type a message...">
 						<button type="submit" id="send-button">
 							<img src="static/Pixel/icon-tombol(putih).png" alt="Send" id="send-icon-black">
 							<img src="static/Pixel/icon-tombol(hitam).png" alt="Send" id="send-icon-white">
 						</button>
 					</form>
-				</div>					  
+				</div>                      
 			</div>
 		</div>
 	</div>
@@ -194,72 +212,72 @@
 			<img src="static/Pixel/background-tombol.png" alt=""></center>
 		</div>
 	</div>
-	<div class="latarbelakang4"></div>
+	<div class="latarbelakang4" id="predict"></div>
 	<div class="main4">
 		<div class="main4-page1">
 		  <div id="scan-container">
 			<div id="image-preview"></div>
-			<label for="upload-button" class="upload-button">
-			  <span>Upload Gambar</span>
-			  <input type="file" id="upload-button" style="display: none;">
-			</label>
+			<div id="result"></div>
+			<form action="/predict" method="post" enctype="multipart/form-data" class="form2">
+			  <div class="button-container">
+				<div class="file-input-wrapper">
+				  <label class="browse-button" for="file-input">Browse</label>
+				  <input id="file-input" type="file" name="image" accept="image/*">
+				</div>
+				<input type="submit" value="Predict" class="predict-button">
+			  </div>
+			</form>
 		  </div>
 		</div>
 	</div>
-	<!-- Add TensorFlow.js library -->
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@3.12.0/dist/tf.min.js"></script>
-	<!-- Load the model -->
+	  
 	<script>
-	  async function loadModel() {
-		const model = await tf.loadLayersModel('static/model.h5');
-		return model;
-	  }
+		const fileInput = document.getElementById("file-input");
+		const imagePreview = document.getElementById("image-preview");
+		const resultContainer = document.getElementById("result");
+	
+		fileInput.addEventListener("change", function(event) {
+			const file = event.target.files[0];
+			const fileReader = new FileReader();
+	
+			fileReader.onload = function(event) {
+				const imageURL = event.target.result;
+				imagePreview.innerHTML = `<img src="${imageURL}" alt="Preview">`;
+			};
+	
+			fileReader.readAsDataURL(file);
+		});
+	
+		const predictButton = document.querySelector(".predict-button");
+		const form = document.querySelector(".form2");
+	
+		form.addEventListener("submit", function(event) {
+			event.preventDefault();
+			resultContainer.innerHTML = "Loading...";
+	
+			const formData = new FormData(form);
+	
+			fetch("/predict", {
+				method: "POST",
+				body: formData
+			})
+				.then(response => response.json())
+				.then(data => {
+					resultContainer.style.display = "flex"; // Mengubah properti display menjadi flex
+					resultContainer.innerHTML = `Result: &nbsp<span class="result-text">${data.response}</span>`;
+				})
+				.catch(error => {
+					resultContainer.innerHTML = "An error occurred";
+				});
+		});
 	</script>
-  
-	<!-- Main JavaScript code -->
-	<script>
-	  // Function to handle image upload and prediction
-	  async function handleImageUpload(event) {
-		const file = event.target.files[0];
-		const reader = new FileReader();
-  
-		reader.onload = async function(event) {
-		  const image = new Image();
-		  image.src = event.target.result;
-  
-		  image.onload = async function() {
-			// Create a TensorFlow.js tensor from the image
-			const tensor = tf.browser.fromPixels(image)
-			  .resizeNearestNeighbor([224, 224]) // Resize the image to match the input size of the model
-			  .expandDims()
-			  .toFloat()
-			  .div(255.0);
-  
-			// Load the pre-trained model
-			const model = await loadModel();
-  
-			// Perform the prediction
-			const prediction = await model.predict(tensor).data();
-  
-			// Display the prediction results
-			const predictionText = `Prediction: ${prediction}`;
-			const predictionElement = document.createElement('p');
-			predictionElement.innerText = predictionText;
-			document.getElementById('scan-container').appendChild(predictionElement);
-		  }
-		}
-  
-		reader.readAsDataURL(file);
-	  }
-  
-	  // Event listener for file upload button
-	  document.getElementById('upload-button').addEventListener('change', handleImageUpload);
-	</script>
+	<!--
 	<div class="latarbelakang5">
 		<center>
 			<iframe width="967" height="544" src="https://www.youtube.com/embed/CzUiYIX3Sx4" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="padding-top: 50px;"></iframe>
 		</center>
 	</div>
+	-->
 	<frameset>
 		<iframe name="bottom" scrolling="no" width="100%" target="contents" frameborder="0" height="68px" src="{{ url_for('static', filename='/footer.html') }}"></iframe>
 	</frameset>
