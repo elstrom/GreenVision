@@ -83,9 +83,8 @@ body, html {
   	border: none;
 }
 #logo {
-	width: 7%;
+	width: 10%;
 	float: left;
-	margin: 12px 0px;
 }
 .rumah a{
 	color: inherit;
@@ -208,9 +207,9 @@ page5 {
 .main3 {
 	position: absolute;
 	top: 285%;
-    width: calc(100% - 0px);
-    min-width: 980px;
-    backface-visibility: hidden;
+	width: calc(100% - 0px);
+	min-width: 980px;
+	backface-visibility: hidden;
 }
 
 .main3-page1 {
@@ -218,21 +217,20 @@ page5 {
 }
 
 #chat-container {
-    max-width: 80%;
-    height: 100%;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    overflow-y: auto;
-    background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 30px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+	max-width: 80%;
+	height: 100%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	overflow-y: auto;
+	background-color: rgba(255, 255, 255, 0.9);
+	border-radius: 30px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 	padding: 30px;
 }
 
-  
-  #message-container {
+#message-container {
 	padding: 10px;
 	display: flex;
 	flex-direction: column-reverse;
@@ -241,6 +239,26 @@ page5 {
 	overflow-y: auto;
 	flex-grow: 1;
 	font-size: 20px;
+	background-color: #f2f2f2;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  #message-container::-webkit-scrollbar {
+	width: 8px;
+  }
+  
+  #message-container::-webkit-scrollbar-track {
+	background-color: #f2f2f2;
+  }
+  
+  #message-container::-webkit-scrollbar-thumb {
+	background-color: #888;
+	border-radius: 4px;
+  }
+  
+  #message-container::-webkit-scrollbar-thumb:hover {
+	background-color: #555;
   }
   
   .message {
@@ -250,110 +268,121 @@ page5 {
 	align-items: flex-end;
 	max-width: 80%;
 	margin-bottom: 10px;
+	animation: fade-in 0.3s ease;
   }
   
   .message p {
-    font-size: inherit; /* Menurunkan ukuran teks dari parent (#message-container) */
-	}
-
+	font-size: inherit;
+	margin: 0;
+  }
+  
   .incoming {
-	background-color: #f2f2f2;
+	background-color: #f7f7f7;
 	text-align: right;
-	align-self: flex-end; /* Menampilkan pesan di sebelah kiri */
-	}
-
-	.outgoing {
-		background-color: #d4edda;
-		text-align: left;
-		align-self: flex-start; /* Menampilkan pesan di sebelah kanan */
-	}
-
-	.outgoing .avatar {
-		margin-left: 10px;
-		margin-right: 0;
-	}
-
-	.outgoing p {
-		margin-right: 10px;
-		margin-left: 0;
-	}
+	align-self: flex-end;
+	padding-left: 20px;
+  }
+  
+  .outgoing {
+	background-color: #d4edda;
+	text-align: left;
+	align-self: flex-start;
+	padding-right: 20px;
+  }
   
   .avatar {
-	width: 30px;
-	height: 30px;
+	width: 50px;
 	border-radius: 50%;
 	margin-right: 10px;
 	object-fit: cover;
 	object-position: center;
   }
   
-  #input-container {
+
+#input-container {
 	padding: 10px;
+	margin-top: 20px;
 	display: flex;
-	align-items: center; /* Menjajarkan vertikal tombol send dengan input teks */
-	overflow: hidden; /* Menghilangkan scrollbar jika kontennya melebihi area visible */
-  }
-  
-  #user-input {
+	align-items: center;
+	overflow: hidden;
+}
+
+#user-input {
 	flex-grow: 1;
 	margin-right: 10px;
 	padding: 20px;
 	border-radius: 15px;
-	border: none; /* Menghilangkan border pada input teks */
-	outline: none; /* Menghilangkan outline saat input teks aktif */
-  }
-  
-  #send-button {
+	border: none;
+	outline: none;
+}
+
+#send-button {
 	padding: 10px;
 	border: none;
-	background-color: transparent;
+	border-radius: 12px;
+	background-color: #aae4b815;
 	cursor: pointer;
-	display: flex; /* Menggunakan display flex untuk mengontrol posisi ikon */
-	align-items: center; /* Menjajarkan vertikal ikon dengan tombol */
-	justify-content: center; /* Menjajarkan horizontal ikon dengan tombol */
-  }
-  
-  #send-icon-black,
-  #send-icon-white {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.button-text {
+	margin: 0px 10px;
+	font-weight: bold;
+	color: #cfcfcf;
+}
+
+.send-icon-container {
+	position: relative;
 	width: 30px;
 	height: 30px;
-	border-radius: 50%;
-	transition: opacity 0.3s; /* Menambahkan transisi pada perubahan opasitas */
-	position: absolute;
-  }
-  
-  #send-icon-white {
-	opacity: 0; /* Mengatur opasitas 0 pada ikon putih */
-  }
-  
-  #send-icon-black {
-	pointer-events: none; /* Mengatur elemen agar tidak bisa diklik */
-	cursor: default; /* Mengubah tampilan pointer menjadi default */
-  }
+}
 
-  #user-input:not(:placeholder-shown) + #send-button #send-icon-black {
-	opacity: 0; /* Mengatur opasitas 0 pada ikon hitam saat pengguna mulai mengetik */
-  }
-  
-  #user-input:not(:placeholder-shown) + #send-button #send-icon-white {
-	opacity: 1; /* Mengatur opasitas 1 pada ikon putih saat pengguna mulai mengetik */
-  }
-  
-  /* Animasi */
-  @keyframes fade-in {
+.send-icon-black,
+.send-icon-white {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	transition: opacity 0.3s;
+	position: absolute;
+}
+
+.send-icon-white {
+	left: 0px;
+	opacity: 0;
+}
+
+.send-icon-black {
+	left: 0px;
+	pointer-events: none;
+	cursor: default;
+}
+
+#user-input:not(:placeholder-shown) + #send-button .send-icon-black {
+	opacity: 0;
+}
+
+#user-input:not(:placeholder-shown) + #send-button .send-icon-white {
+	opacity: 1;
+}
+
+@keyframes fade-in {
 	from {
-	  opacity: 0;
-	  transform: translateY(10px);
+		opacity: 0;
+		transform: translateY(10px);
 	}
 	to {
-	  opacity: 1;
-	  transform: translateY(0);
+		opacity: 1;
+		transform: translateY(0);
 	}
-  }
-  
-  .message {
-	animation: fade-in 0.3s ease;
-  }
+}
+
+/* Disable pointer events for disabled button */
+#send-button[disabled] {
+	pointer-events: none;
+}
   
   .main4 {
 	position: absolute;
@@ -464,10 +493,9 @@ page5 {
   }
   
   #result {
-	display: none;
 	justify-content: center;
 	align-items: center;
-	height: 40px;
+	height: 80px;
 	margin-top: 20px;
 	background-color: #f2f2f2;
 	border-radius: 4px;
@@ -476,7 +504,6 @@ page5 {
 	font-family: Arial, sans-serif;
 	font-size: 25px;
   }
-  
   
   
 

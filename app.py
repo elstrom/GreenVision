@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 import tensorflow as tf
 from tensorflow.keras.preprocessing import image
+from tensorflow.keras.preprocessing.image import ImageDataGenerator
 from io import BytesIO
 import numpy as np
 from Bot.Run import get_bot_response
@@ -14,6 +15,9 @@ model = tf.keras.models.load_model('model.h5', compile=False)
 model.compile(optimizer=tf.keras.optimizers.Adam(learning_rate=0.001), loss='binary_crossentropy',
               metrics=[tf.keras.metrics.AUC(name='auc')])
 
+# Buat generator gambar
+image_generator = ImageDataGenerator(rescale=1./255)
+
 @app.route('/')
 def home():
     return render_template('index.html')
@@ -22,11 +26,13 @@ def home():
 def predict():
     file = request.files['image']
     img = image.load_img(BytesIO(file.read()), target_size=(224, 224))
-    img = image.img_to_array(img)
-    img = np.expand_dims(img, axis=0)
-    img = img/255.0
+    img_array = image.img_to_array(img)
+    img_array = np.expand_dims(img_array, axis=0)
 
-    prediction = model.predict(img)
+    # Gunakan generator gambar untuk memuat batch gambar
+    img_generator = image_generator.flow(img_array, shuffle=False)
+    prediction = model.predict(img_generator)
+
     if prediction < 0.5:
         result = 'Organic Waste'
     else:

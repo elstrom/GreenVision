@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Index</title>
+	<title>GreenVision</title>
 	<link rel="stylesheet" href={{ url_for('static', filename='/CSS/Home.css') }} type="text/css">
 	<script src={{ url_for('static', filename='/Header.js') }}></script>
 </head>
@@ -29,7 +29,7 @@
 				</div>
 				<div class="menu-kiri">
 					<a href="#home">Home</a>
-					<a href="#party">Party</a>
+					<a href="#party">Anggota</a>
 					<a href="#chatbot">ChatBot</a>
 					<a href="#predict">Predict</a>
 				</div>
@@ -54,24 +54,7 @@
 			  </script>
 			<div class="kolom-kanan">
 				<div class="menu-kanan">
-					<div class="tombol-login">
-						<button class="button">
-							<img src="static/Pixel/login.png" id="login">
-							<a href="form.html" class="text">Log In</a>
-						</button>
-					</div>
-					<div class="pembelian">
-						<ul>
-							<li>
-								<a href="#">
-									<img src="static/Pixel/instagram.png" class="icon">
-								</a>
-								<a href="#">
-									<img src="static/Pixel/whatsapp.png" class="icon">
-								</a>
-							</li>
-						</ul>
-					</div>
+					
 				</div>
 			</div>
 		</div>
@@ -97,7 +80,7 @@
 	<div class="latarbelakang2" id="party"></div>
 	<div class="main2">
 		<div class="main2-judul">
-			<h1>Anggota Party</h1>
+			<h1> Anggota </h1>
 		</div>
 		<page1 class="main2-page1">
 			<icon>
@@ -170,42 +153,67 @@
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<div class="main3">
 		<div class="main3-page1">
-			<div id="chat-container">
-				<div id="message-container">
-					<script>
-						$(document).ready(function() {
-							$('#message-container').append('<div class="message outgoing"><p>Selamat datang! Silahkan mulai percakapan.</p></div>');
-							
-							$('#chat-form').on('submit', function(event) {
-								event.preventDefault();
-								var user_input = $('#user-input').val();
-								$('#user-input').val('');
-		
-								$.ajax({
-									url: '/chat',
-									type: 'POST',
-									data: {user_input: user_input},
-									success: function(response) {
-										$('#message-container').prepend('<div class="message outgoing"><p>' + response.response + '</p></div>'); /* Chabot */
-										$('#message-container').prepend('<div class="message incoming"><p>' + user_input + '</p></div>'); /* User */
-									}
-								});
-							});
+		  <div id="chat-container">
+			<div id="message-container">
+			  <script>
+				$(document).ready(function() {
+				  $('#message-container').append('<div class="message outgoing"><img src="static/Pixel/2-NoBG.png" alt="Bot Avatar" class="avatar"><p>Selamat datang! Silahkan mulai percakapan.</p></div>');
+	  
+				  function toggleSendButton() {
+					var userInput = $('#user-input').val();
+					if (userInput.trim() === '') {
+					  $('#send-button').prop('disabled', true);
+					  $('#send-button').css('background-color', '#aae4b815');
+					  $('#button-text').css('color', '#cfcfcf');
+					} else {
+					  $('#send-button').prop('disabled', false);
+					  $('#send-button').css('background-color', '#aae4b89c');
+					  $('#button-text').css('color', '#0c0c0c');
+					}
+				  }
+	  
+				  $('#chat-form').on('submit', function(event) {
+					event.preventDefault();
+					var user_input = $('#user-input').val();
+					$('#user-input').val('');
+	  
+					$('#message-container').prepend('<div class="message incoming"><p>' + user_input + '</p> &nbsp&nbsp <img src="static/Pixel/verified-user.png" alt="User Avatar" class="avatar"></div>').children(':first').hide().fadeIn(300, function() {
+					  setTimeout(function() {
+						$.ajax({
+						  url: '/chat',
+						  type: 'POST',
+						  data: {user_input: user_input},
+						  success: function(response) {
+							$('#message-container').prepend('<div class="message outgoing"><img src="static/Pixel/2-NoBG.png" alt="Bot Avatar" class="avatar"><p>' + response.response + '</p></div>').children(':first').hide().fadeIn(300);
+						  }
 						});
-					</script>
-				</div>
-				<div id="input-container">
-					<form id="chat-form" action="/chat" method="post" style="width: 100%; display: flex;">
-						<input type="text" id="user-input" placeholder="Type a message...">
-						<button type="submit" id="send-button">
-							<img src="static/Pixel/icon-tombol(putih).png" alt="Send" id="send-icon-black">
-							<img src="static/Pixel/icon-tombol(hitam).png" alt="Send" id="send-icon-white">
-						</button>
-					</form>
-				</div>                      
+					  }, 500);
+					});
+	  
+					toggleSendButton();
+				  });
+	  
+				  $('#user-input').on('input', function() {
+					toggleSendButton();
+				  });
+				});
+			  </script>
 			</div>
+			<div id="input-container">
+			  <form id="chat-form" action="/chat" method="post" style="width: 100%; display: flex;">
+				<input type="text" id="user-input" placeholder="Type a message...">
+				<button type="submit" id="send-button" disabled>
+				  <span class="button-text">Send</span>
+				  <div class="send-icon-container">
+					<img src="static/Pixel/icon-tombol(putih).png" alt="Send" class="send-icon-black">
+					<img src="static/Pixel/icon-tombol(hitam).png" alt="Send" class="send-icon-white">
+				  </div>
+				</button>
+			  </form>
+			</div>
+		  </div>
 		</div>
-	</div>
+	  </div>								  
 	<div style="color: whitesmoke;background-color:rgb(104, 99, 71);text-align: right;padding: 30px 150px 30px 6%;text-align: justify;">
 		<div style="text-align: center;">
 			<center><l> Great With Simple AI <br> Complex but Classic Identify <br> Scan your waste and let's find out </l><br>
@@ -217,7 +225,7 @@
 		<div class="main4-page1">
 		  <div id="scan-container">
 			<div id="image-preview"></div>
-			<div id="result"></div>
+			<div id="result" style="display: flex;flex-direction: column;"></div>
 			<form action="/predict" method="post" enctype="multipart/form-data" class="form2">
 			  <div class="button-container">
 				<div class="file-input-wrapper">
@@ -235,40 +243,45 @@
 		const fileInput = document.getElementById("file-input");
 		const imagePreview = document.getElementById("image-preview");
 		const resultContainer = document.getElementById("result");
-	
+
 		fileInput.addEventListener("change", function(event) {
-			const file = event.target.files[0];
-			const fileReader = new FileReader();
-	
-			fileReader.onload = function(event) {
-				const imageURL = event.target.result;
-				imagePreview.innerHTML = `<img src="${imageURL}" alt="Preview">`;
-			};
-	
-			fileReader.readAsDataURL(file);
+		const file = event.target.files[0];
+		const fileReader = new FileReader();
+
+		fileReader.onload = function(event) {
+			const imageURL = event.target.result;
+			imagePreview.innerHTML = `<img src="${imageURL}" alt="Preview">`;
+		};
+
+		fileReader.readAsDataURL(file);
 		});
-	
+
 		const predictButton = document.querySelector(".predict-button");
 		const form = document.querySelector(".form2");
-	
+
 		form.addEventListener("submit", function(event) {
-			event.preventDefault();
-			resultContainer.innerHTML = "Loading...";
-	
-			const formData = new FormData(form);
-	
-			fetch("/predict", {
-				method: "POST",
-				body: formData
+		event.preventDefault();
+		resultContainer.innerHTML = "Loading...";
+
+		const formData = new FormData(form);
+
+		fetch("/predict", {
+			method: "POST",
+			body: formData
+		})
+			.then(response => response.json())
+			.then(data => {
+			resultContainer.innerHTML = `Hasil &nbsp<span class="result-text">${data.response}</span>`;
 			})
-				.then(response => response.json())
-				.then(data => {
-					resultContainer.style.display = "flex"; // Mengubah properti display menjadi flex
-					resultContainer.innerHTML = `Result: &nbsp<span class="result-text">${data.response}</span>`;
-				})
-				.catch(error => {
-					resultContainer.innerHTML = "An error occurred";
-				});
+			.catch(error => {
+			resultContainer.innerHTML = "An error occurred";
+			const errorText = document.createElement("span");
+			errorText.innerHTML = "(Pastikan gambar memiliki format jpg atau png dan ukuran gambar tidak lebih besar dari 1 MB)";
+			errorText.style.color = "rgb(211, 0, 0)";
+			errorText.style.fontSize = "0.5em";
+			errorText.style.marginTop = "10px";
+			resultContainer.appendChild(errorText);
+			});
 		});
 	</script>
 	<!--
