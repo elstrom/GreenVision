@@ -22,7 +22,7 @@ body, html {
 	background-image: url("../Pict/back2.png");
 }
 .latarbelakang2 {
-	background-image: url("../Pict/back4.jpg");
+	background-image: url("../Pict/back5.png");
 }
 .latarbelakang3 {
 	background-image: url("../Pict/back1.jpg");
@@ -160,13 +160,13 @@ ul li a {
     width: calc(100% - 0px);
     min-width: 980px;
     backface-visibility: hidden;
-	margin-top: 400px;
+	margin-top: 370px;
 }
 
 .main2-judul {
 	position: absolute;
 	width: 100%;
-	padding: 90px 50px;
+	padding: 150px 50px;
 	margin-bottom: 50px;
 	text-align: center;
 	color: #504e4e !important;
